@@ -88,11 +88,21 @@ export default async function handler(
   }
 
   const lintResult = await Promise.all(
-    commits.map((commit) => lint(commit.node.message, config.rules))
+    commits.map((commit) => {
+      return new Promise<any>((resolve) => {
+        lint(commit.node.message, config.rules).then((result) => {
+          resolve({
+            ...result,
+            author: commit.node.author.name,
+            avatarUrl: commit.node.author.avatarUrl,
+          });
+        });
+      });
+    })
   );
 
-  res.send(
-    lintResult.reduce(
+  res.send({
+    ...lintResult.reduce(
       (acc, cur) => {
         if (cur.valid) {
           acc.valid += 1;
@@ -102,6 +112,7 @@ export default async function handler(
         return acc;
       },
       { valid: 0, invalid: 0 }
-    )
-  );
+    ),
+    lintResult,
+  });
 }
