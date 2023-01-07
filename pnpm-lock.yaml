@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@commitlint/config-conventional': ^17.4.0
   '@commitlint/lint': ^17.4.0
   '@commitlint/types': ^17.4.0
   '@next/font': 13.1.1
@@ -16,6 +17,7 @@ specifiers:
   typescript: 4.9.4
 
 dependencies:
+  '@commitlint/config-conventional': 17.4.0
   '@commitlint/lint': 17.4.0
   '@next/font': 13.1.1
   '@types/node': 18.11.18
@@ -68,6 +70,13 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+    dev: false
+
+  /@commitlint/config-conventional/17.4.0:
+    resolution: {integrity: sha512-G4XBf45J4ZMspO4NwBFzY3g/1Kb+B42BcIxeikF8wucQxcyxcmhRdjeQpRpS1XEcBq5pdtEEQFipuB9IuiNFhw==}
+    engines: {node: '>=v14'}
+    dependencies:
+      conventional-changelog-conventionalcommits: 5.0.0
     dev: false
 
   /@commitlint/ensure/17.4.0:
@@ -705,6 +714,15 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       compare-func: 2.0.0
+      q: 1.5.1
+    dev: false
+
+  /conventional-changelog-conventionalcommits/5.0.0:
+    resolution: {integrity: sha512-lCDbA+ZqVFQGUj7h9QBKoIpLhl8iihkO0nCTyRNzuXtcd7ubODpYB04IFy31JloiJgG0Uovu8ot8oxRzn7Nwtw==}
+    engines: {node: '>=10'}
+    dependencies:
+      compare-func: 2.0.0
+      lodash: 4.17.21
       q: 1.5.1
     dev: false
 

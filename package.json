@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@commitlint/config-conventional": "^17.4.0",
     "@commitlint/lint": "^17.4.0",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",

@@ -3,7 +3,8 @@ import axios from "axios";
 import { CommitDto } from "../../../common/types/commits.type";
 import lint from "@commitlint/lint";
 import { LintOutcome } from "@commitlint/types";
-
+//@ts-ignore
+import config from "@commitlint/config-conventional";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -85,4 +86,22 @@ export default async function handler(
     lastCursor = edges[edges.length - 1].cursor;
     totalCount -= 100;
   }
+
+  const lintResult = await Promise.all(
+    commits.map((commit) => lint(commit.node.message, config.rules))
+  );
+
+  res.send(
+    lintResult.reduce(
+      (acc, cur) => {
+        if (cur.valid) {
+          acc.valid += 1;
+        } else {
+          acc.invalid += 1;
+        }
+        return acc;
+      },
+      { valid: 0, invalid: 0 }
+    )
+  );
 }
