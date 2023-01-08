@@ -11,6 +11,9 @@
   "dependencies": {
     "@commitlint/config-conventional": "^17.4.0",
     "@commitlint/lint": "^17.4.0",
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.10.0",
+    "@mantine/hooks": "^5.10.0",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",

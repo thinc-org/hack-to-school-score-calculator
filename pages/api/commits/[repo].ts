@@ -44,7 +44,6 @@ export default async function handler(
   const commits = [];
   let totalCount = total;
   for (let index = 0; index <= total; index += 100) {
-    console.log(lastCursor);
     const query = {
       query: `{
         repository(name: "${repo}", owner: "thinc-org") {
@@ -79,7 +78,6 @@ export default async function handler(
       headers: headers,
       data: query,
     });
-    console.log(JSON.stringify(reponse.data, null, 2));
     const edges =
       reponse.data.data.repository.defaultBranchRef.target.history.edges;
     commits.push(...edges);
