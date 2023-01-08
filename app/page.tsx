@@ -1,6 +1,5 @@
 "use client";
 
-<<<<<<< Updated upstream
 import {
   ActionIcon,
   Autocomplete,
@@ -20,21 +19,10 @@ export default function Home() {
   const getData = useCallback(async (repo: string) => {
     setLoading(true);
     const res = await fetch(`http://localhost:3000/api/commits/${repo}`);
-=======
-import { Autocomplete, Avatar, Card, Timeline } from "@mantine/core";
-import styles from "./page.module.css";
-import { useState, useEffect, useMemo } from "react";
-
-export default function Home() {
-  const [data, setData] = useState<any>([]);
-  const getData = useMemo(async () => {
-    const res = await fetch("/api/commits/cugetreg");
->>>>>>> Stashed changes
     if (!res.ok) {
       setData([]);
       return;
     }
-<<<<<<< Updated upstream
     const data = await res.json();
     setData(data);
     setLoading(false);
@@ -42,13 +30,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <LoadingOverlay visible={loading} overlayBlur={2} />
-=======
-    setData(await res.json());
-  }, []);
-  useEffect(() => {}, []);
-  return (
-    <main className={styles.main}>
->>>>>>> Stashed changes
       <Card
         sx={{
           maxWidth: 600,
@@ -59,7 +40,6 @@ export default function Home() {
         radius="md"
         withBorder
       >
-<<<<<<< Updated upstream
         <Flex
           gap="sm"
           justify="space-around"
@@ -127,45 +107,6 @@ export default function Home() {
             </Timeline>
           </>
         )}
-=======
-        <Autocomplete
-          label="Your favorite framework/library"
-          placeholder="Type to search"
-          data={["React", "Angular", "Svelte", "Vue"]}
-          dropdownPosition="bottom"
-          sx={{
-            marginBottom: "1rem",
-          }}
-        />
-        <Timeline>
-          <Timeline.Item
-            title="Avatar"
-            bulletSize={24}
-            bullet={
-              <Avatar
-                size={22}
-                radius="xl"
-                src="https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4"
-              />
-            }
-          >
-            <div>test</div>
-          </Timeline.Item>
-          <Timeline.Item
-            title="Avatar"
-            bulletSize={24}
-            bullet={
-              <Avatar
-                size={22}
-                radius="xl"
-                src="https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4"
-              />
-            }
-          >
-            <div>test</div>
-          </Timeline.Item>
-        </Timeline>
->>>>>>> Stashed changes
       </Card>
     </main>
   );
