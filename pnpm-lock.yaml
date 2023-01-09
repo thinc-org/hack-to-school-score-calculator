@@ -274,8 +274,6 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   /@commitlint/config-conventional/17.4.0:
     resolution: {integrity: sha512-G4XBf45J4ZMspO4NwBFzY3g/1Kb+B42BcIxeikF8wucQxcyxcmhRdjeQpRpS1XEcBq5pdtEEQFipuB9IuiNFhw==}
     engines: {node: '>=v14'}
@@ -283,10 +281,6 @@ packages:
       conventional-changelog-conventionalcommits: 5.0.0
     dev: false
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   /@commitlint/ensure/17.4.0:
     resolution: {integrity: sha512-7oAxt25je0jeQ/E0O/M8L3ADb1Cvweu/5lc/kYF8g/kXatI0wxGE5La52onnAUAWeWlsuvBNar15WcrmDmr5Mw==}
     engines: {node: '>=v14'}
