@@ -18,7 +18,7 @@ export function useCommits() {
         return;
       }
       const response = await fetch(
-        `http://${location.host}/api/commits/${repo}`
+        `https://${location.host}/api/commits/${repo}`
       );
 
       if (!response.ok) {
