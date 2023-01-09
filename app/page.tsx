@@ -38,7 +38,7 @@ export default function Home() {
             wrap="wrap"
           >
             <Autocomplete
-              label="Your favorite framework/library"
+              label="Your repo name"
               placeholder="Type to search"
               data={teams}
               dropdownPosition="bottom"
