@@ -1,15 +1,18 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import axios from "axios";
-import { CommitDto } from "../../../common/types/commits.type";
 import lint from "@commitlint/lint";
-import { LintOutcome } from "@commitlint/types";
 //@ts-ignore
 import config from "@commitlint/config-conventional";
+import { teams } from "../../../common/data/teams";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const { repo } = req.query;
+  if (!teams.includes(repo as string)) {
+    res.json({ error: "Invalid repo" });
+    return;
+  }
   const getTotal = {
     query: `{
       repository(name: "${repo}", owner: "thinc-org") {
