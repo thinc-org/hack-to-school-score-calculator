@@ -24,7 +24,7 @@ export default function Login() {
           margin: "auto",
         }}
         onClick={() => {
-          window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`;
+          window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&scope=repo,user`;
         }}
       >
         Login with github

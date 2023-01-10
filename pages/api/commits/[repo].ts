@@ -9,6 +9,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { repo, token } = req.query;
+  console.log(repo, token)
   if (!teams.includes(repo as string)) {
     res.json({ error: "Invalid repo" });
     return;
@@ -39,6 +40,7 @@ export default async function handler(
     headers: headers,
     data: getTotal,
   });
+  console.log(totalResponse.data)
 
   const total =
     totalResponse.data.data.repository.defaultBranchRef.target.history
@@ -81,6 +83,7 @@ export default async function handler(
       headers: headers,
       data: query,
     });
+    console.log(reponse.data);
     const edges =
       reponse.data.data.repository.defaultBranchRef.target.history.edges;
     commits.push(...edges);

@@ -6,18 +6,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { code } = req.query;
-  const { data } = await axios.post<{ access_token: string }>(
-    "https://github.com/login/oauth/access_token",
-    {
-      client_id: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
-      client_secret: process.env.GITHUB_NEXT_SECRET,
-      code: code,
-    },
+  const { data } = await axios.post<string>(
+    `https://github.com/login/oauth/access_token?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`,
     {
       headers: {
         Accept: "application/json",
       },
     }
   );
-  data.access_token;
+  console.log(data);
+  res.send({token:data.split('&')[0].split('=')[1]});
 }

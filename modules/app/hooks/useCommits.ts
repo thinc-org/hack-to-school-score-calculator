@@ -9,9 +9,7 @@ export function useCommits(token: string) {
   const isError = useMemo(() => !!loading, [loading]);
 
   const inputValue = useRef("");
-
-  const fetchCommits = useCallback(async (repo: string) => {
-    if (!token) return;
+  const fetchCommits = useCallback(async (repo: string,token:string) => {
     try {
       setLoading(true);
       if (!teams.includes(repo)) {
@@ -34,12 +32,12 @@ export function useCommits(token: string) {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, []);
 
   const onSearch = useCallback((e: any) => {
     e.preventDefault();
-    fetchCommits(inputValue.current);
-  }, []);
+    fetchCommits(inputValue.current,token);
+  }, [token]);
 
   return {
     data,
