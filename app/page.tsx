@@ -102,7 +102,9 @@ export default function Home() {
                     bullet={
                       <Avatar size={22} radius="xl" src={item.avatarUrl} />
                     }
-                  ></Timeline.Item>
+                  >
+                    {item.author}
+                  </Timeline.Item>
                 );
               })}
             </Timeline>
