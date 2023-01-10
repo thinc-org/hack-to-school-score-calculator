@@ -34,7 +34,7 @@ export function useCommits(token: string) {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [token]);
 
   const onSearch = useCallback((e: any) => {
     e.preventDefault();
