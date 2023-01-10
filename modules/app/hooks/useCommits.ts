@@ -11,6 +11,7 @@ export function useCommits(token: string) {
   const inputValue = useRef("");
 
   const fetchCommits = useCallback(async (repo: string) => {
+    if (!token) return;
     try {
       setLoading(true);
       if (!teams.includes(repo)) {

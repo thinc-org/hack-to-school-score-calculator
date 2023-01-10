@@ -13,11 +13,11 @@ import styles from "./page.module.css";
 import { useCommits } from "../modules/app/hooks/useCommits";
 import { useGHLogin } from "../modules/app/hooks/useGHLogin";
 import { teams } from "../common/data/teams";
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
-  const token = useGHLogin(router.query.code as string);
+  const searchParams = useSearchParams();
+  const token = useGHLogin(searchParams.get("code") ?? "");
   const {
     loading,
     inputValue: input,
