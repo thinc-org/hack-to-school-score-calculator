@@ -11,10 +11,20 @@ import {
 } from "@mantine/core";
 import styles from "./page.module.css";
 import { useCommits } from "../modules/app/hooks/useCommits";
+import { useGHLogin } from "../modules/app/hooks/useGHLogin";
 import { teams } from "../common/data/teams";
+import { useRouter } from "next/router";
 
 export default function Home() {
-  const { loading, inputValue: input, onSearch, data, error } = useCommits();
+  const router = useRouter();
+  const token = useGHLogin(router.query.code as string);
+  const {
+    loading,
+    inputValue: input,
+    onSearch,
+    data,
+    error,
+  } = useCommits(token);
 
   return (
     <main className={styles.main}>

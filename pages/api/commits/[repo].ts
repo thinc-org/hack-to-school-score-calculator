@@ -8,7 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { repo } = req.query;
+  const { repo, token } = req.query;
   if (!teams.includes(repo as string)) {
     res.json({ error: "Invalid repo" });
     return;
@@ -30,7 +30,7 @@ export default async function handler(
   };
 
   const headers = {
-    Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+    Authorization: `bearer ${token}`,
   };
 
   const totalResponse = await axios({

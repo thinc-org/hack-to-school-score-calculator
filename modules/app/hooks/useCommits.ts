@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useMemo } from "react";
 import { teams } from "../../../common/data/teams";
 import { CommitsDto } from "../types/commits.dto";
 
-export function useCommits() {
+export function useCommits(token: string) {
   const [data, setData] = useState<CommitsDto>();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export function useCommits() {
         return;
       }
       const response = await fetch(
-        `https://${location.host}/api/commits/${repo}`
+        `${location.origin}/api/commits/${repo}?token=${token}`
       );
 
       if (!response.ok) {
